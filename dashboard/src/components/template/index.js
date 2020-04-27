@@ -4,9 +4,9 @@ import { makeStyles, createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 
 /* Componentes */
-import Header from './header';
-import Main from './main';
-import SideNav from './sidenav';
+import Header from './Header';
+import Main from './Main';
+import SideNav from './Sidenav';
 
 const theme = createMuiTheme({
   palette: {

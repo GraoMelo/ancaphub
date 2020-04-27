@@ -12,7 +12,7 @@ import {
  Settings as SettingsIcon,
  CardGiftcard as InvitesIcon
 } from '@material-ui/icons'
-import MenuItem from '../template/menuItem';
+import MenuItem from './MenuItem';
 import { withRouter } from 'react-router';
 
 const drawerWidth = 240;
@@ -50,9 +50,9 @@ const SideNav = props => {
           label="Dashboard"
         />
         <MenuItem
-          selected={url.includes('/collection')}
+          selected={url.includes('/library')}
           icon={<ViewListIcon />}
-          link="/collection"
+          link="/library"
           label="Coleção"
         />
         <MenuItem

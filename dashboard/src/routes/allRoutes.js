@@ -1,16 +1,12 @@
 import Dashboard from '../pages/dashboard';
-import Collection from '../pages/library';
-import BookForm from '../pages/library/books/bookFormPage';
-import ArticleForm from '../pages/library/articles/articleFormPage';
-import VideoForm from '../pages/library/videos/videoFormPage';
-import Settings from '../pages/settings';
+import Library from '../pages/library';
 import Users from '../pages/users';
 import Invites from '../pages/invites';
-import SingleUser from '../pages/users/single';
 import Categories from '../pages/categories';
-import SignIn from '../pages/auth/signIn';
+import Settings from '../pages/settings';
+import Error404 from '../pages/errors/404'
 
-const closedRoutes = [
+export default [
   {
     exact: true,
     path: "/",
@@ -18,38 +14,8 @@ const closedRoutes = [
   },
   {
     exact: true,
-    path: "/collection",
-    component: Collection
-  },
-  {
-    exact: false,
-    path: "/collection/book/add/",
-    component: BookForm
-  },
-  {
-    exact: false,
-    path: "/collection/book/edit/:id",
-    component: BookForm
-  },
-  {
-    exact: false,
-    path: "/collection/article/add/",
-    component: ArticleForm
-  },
-  {
-    exact: false,
-    path: "/collection/article/edit/:id",
-    component: ArticleForm
-  },
-  {
-    exact: false,
-    path: "/collection/video/add/",
-    component: VideoForm
-  },
-  {
-    exact: false,
-    path: "/collection/video/edit/:id",
-    component: VideoForm
+    path: "/library",
+    component: Library
   },
   {
     exact: true,
@@ -63,11 +29,6 @@ const closedRoutes = [
   },
   {
     exact: true,
-    path: "/users/:id",
-    component: SingleUser
-  },
-  {
-    exact: true,
     path: "/invites",
     component: Invites
   },
@@ -75,16 +36,9 @@ const closedRoutes = [
     exact: true,
     path: "/settings",
     component: Settings
-  }
-]
-
-const openRoutes = [
+  },
   {
-    exact: true,
-    path: "",
-    component: SignIn,
-    noTemplate: true,
+    path: "*",
+    component: Error404
   }
 ]
-
-export { openRoutes, closedRoutes }

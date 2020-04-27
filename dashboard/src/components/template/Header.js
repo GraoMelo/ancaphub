@@ -11,9 +11,7 @@ import {
 import { makeStyles, fade } from '@material-ui/core/styles';
 import { Menu as MenuIcon} from '@material-ui/icons';
 import defaultProfilePicture from '../../assets/images/defaultProfilePicture.png'
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { logoutUser } from '../../actions/authActions';
+
 
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -84,7 +82,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function Header(props) {
+export default function Header(props) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const isMenuOpen = Boolean(anchorEl);
@@ -123,19 +121,11 @@ function Header(props) {
           aria-haspopup="true"
           onClick={handleProfileMenuOpen}
           color="inherit">
-          {props.user.avatar && props.user.avatar !== '' ? (
-            <Avatar
-              src={props.user.avatar}
-              alt={props.user.name}
-              style={{ width: '40px', height: '40px' }}
-            />
-          ) : (
               <Avatar
                 src={defaultProfilePicture}
                 alt="Foto de perfil genérica"
                 style={{ width: '40px', height: '40px' }}
               />
-            )}
         </IconButton>
       </Toolbar>
 
@@ -152,11 +142,3 @@ function Header(props) {
     </AppBar>
   );
 }
-
-const mapStateToProps = state => ({ user: state.auth.user });
-const mapDispatchToProps = dispatch =>
-  bindActionCreators({ logoutUser }, dispatch);
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Header);
